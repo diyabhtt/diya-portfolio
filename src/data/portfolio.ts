@@ -1,3 +1,5 @@
+import hexDPoster from '../../files/YOLO (2).pdf?url'
+
 export type NavItem = {
   label: string
   target: string
@@ -167,17 +169,15 @@ export const hexDContributions = [
   },
 ]
 
-// TODO: Replace these empty values with Diya's final public contact URLs.
+export const contactEmail = 'diyabhattarai380@gmail.com'
+
 export const contactLinks = {
-  Email: '',
-  LinkedIn: '',
-  GitHub: '',
-  Resume: '',
+  LinkedIn: 'https://www.linkedin.com/in/diya-bhattarai/',
+  GitHub: 'https://github.com/diyabhtt',
 } as const
 
-// TODO: Replace these with the project-specific publication URLs.
 export const researchLinks = {
-  autoWispZenodo: '',
+  autoWispZenodo: 'https://doi.org/10.5281/zenodo.22042712',
   autoWispPoster: '',
-  hexDPoster: '',
+  hexDPoster,
 } as const

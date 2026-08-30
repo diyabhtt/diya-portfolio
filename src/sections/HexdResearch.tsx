@@ -42,6 +42,19 @@ export function HexdResearch() {
               a single frame, and move toward long-horizon spatial understanding.
             </p>
           </InfoCard>
+          <article className="info-card research-media-card">
+            <p className="eyebrow">Research Poster</p>
+            <h3>YOLO: Intent-Aware Scene Memory</h3>
+            <object
+              data={researchLinks.hexDPoster}
+              type="application/pdf"
+              aria-label="YOLO: Intent-Aware Scene Descriptions and Memory for the Blind poster"
+            >
+              <a href={researchLinks.hexDPoster} target="_blank" rel="noreferrer">
+                Open research poster
+              </a>
+            </object>
+          </article>
         </div>
         <div className="link-row">
           <PortfolioLink href={researchLinks.hexDPoster} variant="dark">

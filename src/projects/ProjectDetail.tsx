@@ -1,5 +1,41 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { findProject } from '../data/projects'
+import { findProject, type ProjectMedia } from '../data/projects'
+
+function EmbeddedProjectMedia({ media }: { media: ProjectMedia }) {
+  return (
+    <section
+      className={`project-media project-media--${media.layout}`}
+      aria-labelledby="project-media-title"
+    >
+      <div className="project-media__header">
+        <div>
+          <p className="eyebrow">{media.eyebrow}</p>
+          <h2 id="project-media-title">{media.title}</h2>
+        </div>
+        <a href={media.src} target="_blank" rel="noreferrer">
+          {media.linkLabel}
+        </a>
+      </div>
+
+      {media.kind === 'video' ? (
+        <video controls preload="metadata" aria-label={media.title}>
+          <source src={media.src} type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+      ) : (
+        <object data={media.src} type="application/pdf" aria-label={media.title}>
+          <p>
+            This browser cannot display the PDF inline.{' '}
+            <a href={media.src} target="_blank" rel="noreferrer">
+              Open {media.title}
+            </a>
+            .
+          </p>
+        </object>
+      )}
+    </section>
+  )
+}
 
 export function ProjectDetail() {
   const { slug } = useParams()
@@ -49,36 +85,27 @@ export function ProjectDetail() {
           </article>
         </div>
 
-        <section className="media-placeholder" aria-label="Project media placeholder">
-          <p className="eyebrow">Video / Screenshots / Diagrams</p>
-          <div>
-            <span aria-hidden="true">＋</span>
-            <p>Project media coming soon</p>
-          </div>
-        </section>
+        {project.media && <EmbeddedProjectMedia media={project.media} />}
 
-        <div className="project-world__links">
-          {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer">
-              GitHub ↗
-            </a>
-          )}
-          {project.demo && (
-            <a href={project.demo} target="_blank" rel="noreferrer">
-              Demo ↗
-            </a>
-          )}
-          {project.video && (
-            <a href={project.video} target="_blank" rel="noreferrer">
-              Video ↗
-            </a>
-          )}
-          {!project.github && !project.demo && !project.video && (
-            <span className="portfolio-link portfolio-link--disabled" aria-disabled="true">
-              Project links coming soon
-            </span>
-          )}
-        </div>
+        {(project.github || project.demo || project.video) && (
+          <div className="project-world__links">
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+            )}
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noreferrer">
+                Demo ↗
+              </a>
+            )}
+            {project.video && (
+              <a href={project.video} target="_blank" rel="noreferrer">
+                Video ↗
+              </a>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="project-world__ground" aria-hidden="true">

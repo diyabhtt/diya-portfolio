@@ -1,3 +1,17 @@
+import avangridSlides from '../../files/Avangrid slides (7).pdf?url'
+import curioVideo from '../../files/Curio.mp4?url'
+import kidsUPoster from '../../files/Kids-U Final Poster.pdf?url'
+import opticNetVideo from '../../files/OpticNet video.mp4?url'
+
+export type ProjectMedia = {
+  kind: 'pdf' | 'video'
+  src: string
+  title: string
+  eyebrow: string
+  linkLabel: string
+  layout: 'landscape' | 'portrait'
+}
+
 export type Project = {
   slug: string
   title: string
@@ -11,6 +25,7 @@ export type Project = {
   github?: string
   demo?: string
   video?: string
+  media?: ProjectMedia
 }
 
 export const projects: Project[] = [
@@ -29,6 +44,14 @@ export const projects: Project[] = [
       'React component architecture, API integration, state and form handling, reusable admin patterns, and data-backed workflows.',
     impact:
       'The project turned real nonprofit operations into a working software product and gave Kids-U a foundation for managing core administrative work more cleanly.',
+    media: {
+      kind: 'pdf',
+      src: kidsUPoster,
+      title: 'Kids-U Final Poster',
+      eyebrow: 'Project Poster',
+      linkLabel: 'Open Full Poster ↗',
+      layout: 'portrait',
+    },
   },
   {
     slug: 'on-the-grid',
@@ -45,6 +68,14 @@ export const projects: Project[] = [
       'Time-series preparation, gradient-boosting forecasting, scenario simulation, Monte Carlo analysis, and financial comparison logic.',
     impact:
       'The project connected machine-learning output to a real investment decision and earned 2nd Place at the Avangrid Hackathon.',
+    media: {
+      kind: 'pdf',
+      src: avangridSlides,
+      title: 'On the Grid — Avangrid Hackathon Slides',
+      eyebrow: 'Project Slides',
+      linkLabel: 'Open Full Slide Deck ↗',
+      layout: 'landscape',
+    },
   },
   {
     slug: 'opticnet',
@@ -61,6 +92,14 @@ export const projects: Project[] = [
       'Image preprocessing, CNN training, TensorFlow/Keras, an inference pipeline, Grad-CAM explainability, and Flask serving.',
     impact:
       'The result paired predictions with visual evidence, making its output easier to inspect and discuss. OpticNet won 1st Place at UTD AIMD.',
+    media: {
+      kind: 'video',
+      src: opticNetVideo,
+      title: 'OpticNet Project Demo',
+      eyebrow: 'Project Video',
+      linkLabel: 'Open Video ↗',
+      layout: 'landscape',
+    },
   },
   {
     slug: 'breakpoint',
@@ -93,6 +132,14 @@ export const projects: Project[] = [
       'Twilio voice, React, TypeScript, LLM orchestration, summary generation, and secure workflow integration.',
     impact:
       'The project showed how voice AI could collect context before human follow-up and reduce repetitive information gathering in healthcare interactions.',
+    media: {
+      kind: 'video',
+      src: curioVideo,
+      title: 'Curio Project Demo',
+      eyebrow: 'Project Video',
+      linkLabel: 'Open Video ↗',
+      layout: 'landscape',
+    },
   },
 ]
 

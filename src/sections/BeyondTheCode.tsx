@@ -26,13 +26,6 @@ export function BeyondTheCode() {
             </p>
           </InfoCard>
 
-          <InfoCard eyebrow="Replate" title="Community Leadership">
-            <p className="todo-copy">
-              TODO: Add final user-provided role, responsibilities, and impact
-              details for Replate.
-            </p>
-          </InfoCard>
-
           <InfoCard eyebrow="ACM Outreach" title="Logistics Officer">
             <h4>What I Do</h4>
             <p>
